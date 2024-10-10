@@ -1,0 +1,72 @@
+.input {
+  width: 320px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: #e2dddd;
+  color: black;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-bottom 0.3s ease-in-out;
+}
+.name_container {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  gap: 8px;
+  flex-direction: column;
+
+  width: 100%;
+}
+.number_container {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.errorMessage_number,
+.errorMessage_name {
+  color: brown;
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+.label {
+  display: flex;
+
+  gap: 5px;
+  font-size: 18px;
+  font: 1em sans-serif;
+  color: #a9a4a4;
+  text-align: left;
+  flex-direction: column;
+}
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+  font-size: 18px;
+  font: 1em sans-serif;
+  width: auto;
+  text-align: center;
+  align-items: center;
+  &:hover {
+    background-color: #0069d9;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    color: white;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+}
