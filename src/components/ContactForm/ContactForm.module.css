@@ -1,5 +1,5 @@
 .input {
-  width: 320px;
+  width: 340px;
   padding: 10px;
   border: none;
   border-bottom: 1px solid #ccc;
@@ -68,5 +68,29 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
+  }
+}
+.form_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
   }
 }

@@ -2,8 +2,8 @@ import s from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
-import { nanoid } from "nanoid"; // Importing nanoid for unique IDs
+import { addContacts } from "../../redux/contactsOps.js";
+// import { nanoid } from "nanoid"; // Importing nanoid for unique IDs
 import { selectContacts } from "../../redux/Contacts/selectors";
 // Validation schema
 const validationSchema = Yup.object({
@@ -38,9 +38,7 @@ const ContactForm = () => {
       return;
     }
 
-    dispatch(
-      addContact({ id: nanoid(), name: values.name, number: values.number })
-    );
+    dispatch(addContacts({ name: values.name, number: values.number }));
     resetForm();
   };
 
