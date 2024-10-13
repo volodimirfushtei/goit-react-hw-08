@@ -2,15 +2,34 @@ import "./App.css";
 import ContactList from "./components/ContactList/ContactList";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
-import { useEffect } from "react"; // Import useEffect
+import axios from "axios";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchContacts } from "./redux/contactsOps.js";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+axios.defaults.baseURL = "https://670423d1ab8a8f89273313e7.mockapi.io/";
+
+export const fetchContacts = createAsyncThunk(
+  "contacts/fetchAll",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/contacts");
+      return response.data;
+    } catch (error) {
+      console.error("Failed:", error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 function App() {
-  const dispatch = useDispatch(); // Use const for dispatch
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts()); // Fix parentheses
+    const loadingContacts = async () => {
+      dispatch(fetchContacts());
+    };
+    loadingContacts();
   }, [dispatch]);
 
   return (
