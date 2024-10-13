@@ -1,5 +1,5 @@
 .searchBox {
-  width: 360px;
+  width: 380px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -30,7 +30,7 @@
   text-align: left;
 }
 .input {
-  width: 320px;
+  width: 380px;
   padding: 10px;
   border: none;
   border: 1px solid #aca9a9;
@@ -45,5 +45,21 @@
   transition: background-color 0.3s ease;
   &:focus {
     background-color: #f0f0f0;
+    box-shadow: 0 5px 10px rgba(81, 79, 79, 0);
+  }
+}
+.searchBox_container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 440px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  padding-bottom: 20px;
+  &:hover {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    background-color: #e4e2e2;
   }
 }

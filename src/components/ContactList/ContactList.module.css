@@ -1,21 +1,18 @@
 .contacts {
   display: grid;
-  max-width: 1240px;
+  min-width: 1420px;
   font: sans-serif;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: #f5f5f5;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 10px;
+  margin: 0 auto;
+  padding: 8px;
+  background-color: #f7f5f5;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
+  align-items: center;
+  justify-content: center;
   max-height: 500px;
   margin-bottom: 2rem;
-  &::-webkit-scrollbar-track {
-    background-color: #f5f5f5;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
+  list-style-type: none;
+  transition: background-color 0.3s ease;
 }
