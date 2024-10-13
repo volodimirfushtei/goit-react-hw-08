@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
 import { addContacts } from "../../redux/contactsOps.js";
 // import { nanoid } from "nanoid"; // Importing nanoid for unique IDs
-import { selectContacts } from "../../redux/contactsSlice.js";
+import { selectFilteredContacts } from "../../redux/contactsSlice.js";
 // Validation schema
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -24,7 +24,7 @@ const initialValues = {
 };
 
 const ContactForm = () => {
-  const contacts = useSelector(selectContacts);
+  const contacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
 
   const handleAddContact = (values, { resetForm }) => {

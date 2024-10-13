@@ -3,7 +3,7 @@ import {
   fetchContacts,
   deleteContacts,
   addContacts,
-} from "../redux/contactsOps.js"; // Імпортуйте свої thunk-функції
+} from "../redux/contactsOps.js";
 import { createSelector } from "reselect";
 
 const contactsSlice = createSlice({
@@ -16,26 +16,26 @@ const contactsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.pending, (state) => {
-        state.loading = true; // Встановлюємо loading в true під час pending
-        state.error = null; // Скидаємо помилку
+        state.loading = true;
+        state.error = null;
       })
       .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.loading = false; // Встановлюємо loading в false при виконанні
-        state.items = action.payload; // Оновлюємо items з отриманими контактами
+        state.loading = false;
+        state.items = action.payload;
       })
       .addCase(deleteContacts.fulfilled, (state, action) => {
-        state.loading = false; // Встановлюємо loading в false при виконанні
+        state.loading = false;
         state.items = state.items.filter(
           (contact) => contact.id !== action.payload
-        ); // Видаляємо контакт
+        );
       })
       .addCase(addContacts.fulfilled, (state, action) => {
-        state.loading = false; // Встановлюємо loading в false при виконанні
-        state.items.push(action.payload); // Додаємо новий контакт
+        state.loading = false;
+        state.items.push(action.payload);
       })
       .addCase(addContacts.rejected, (state, action) => {
-        state.loading = false; // Встановлюємо loading в false при відмові
-        state.error = action.payload; // Встановлюємо повідомлення про помилку
+        state.loading = false;
+        state.error = action.payload;
       })
       .addMatcher(
         isAnyOf(
@@ -44,7 +44,7 @@ const contactsSlice = createSlice({
           fetchContacts.pending
         ),
         (state) => {
-          state.loading = true; // Встановлюємо loading в true для будь-якої дії pending
+          state.loading = true;
         }
       )
       .addMatcher(
@@ -54,8 +54,8 @@ const contactsSlice = createSlice({
           fetchContacts.rejected
         ),
         (state, action) => {
-          state.loading = false; // Встановлюємо loading в false для відмовлених дій
-          state.error = action.payload; // Встановлюємо повідомлення про помилку
+          state.loading = false;
+          state.error = action.payload;
         }
       );
   },
@@ -63,7 +63,7 @@ const contactsSlice = createSlice({
 
 export const selectNameFilter = (state) => state.filters.name;
 
-export const selectContacts = createSelector(
+export const selectFilteredContacts = createSelector(
   [(state) => state.contacts.items, selectNameFilter],
   (contacts, filter) => {
     if (!filter) return contacts;
@@ -74,7 +74,7 @@ export const selectContacts = createSelector(
 );
 
 export const contactReducer = contactsSlice.reducer;
-export const selectLoading = (state) => state.contacts.loading; // Виправлено помилку
+export const selectLoading = (state) => state.contacts.loading;
 export const selectError = (state) => state.contacts.error;
 
 // export const selectContacts = (state) => state.contacts.items;
