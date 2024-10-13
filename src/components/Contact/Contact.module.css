@@ -24,16 +24,16 @@
   font: 1.1em sans-serif;
   margin-right: 10px;
   padding: 8px 16px;
-  background-color: #e3c345;
-  color: #f56262;
+  background-color: #f1d14e;
+  color: #e91818;
   cursor: pointer;
   border: 1px solid rgba(44, 39, 39, 0);
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   &:hover {
-    background-color: #a78b1c;
-    color: #c51212;
+    background-color: #d7bb47;
+    color: #f60e0e;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
   }
