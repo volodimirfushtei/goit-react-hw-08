@@ -46,7 +46,7 @@
   flex-direction: column;
 }
 .button {
-  background-color: #007bff;
+  background-color: #e8be16;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -60,7 +60,7 @@
   text-align: center;
   align-items: center;
   &:hover {
-    background-color: #0069d9;
+    background-color: #c49e06;
     transition: background-color 0.3s ease-in-out;
     cursor: pointer;
     color: white;
