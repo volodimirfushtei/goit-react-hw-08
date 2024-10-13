@@ -2,15 +2,15 @@ import s from "./ContactList.module.css";
 import Contact from "../Contact/Contact.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContacts } from "../../redux/contactsOps.js";
-import { selectContacts } from "../../redux/Contacts/selectors.js";
-import { selectLoding } from "../../redux/contactsSlice.js";
+import { selectContacts } from "../../redux/contactsSlice.js";
+import { selectLoading } from "../../redux/contactsSlice.js";
 import { selectError } from "../../redux/contactsSlice.js";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 const ContactList = () => {
   const contacts = useSelector(selectContacts) || [];
   const dispatch = useDispatch();
-  const loading = useSelector(selectLoding) || false;
+  const loading = useSelector(selectLoading) || false;
   const error = useSelector(selectError) || false;
   const handleDeleteContact = (id) => {
     dispatch(deleteContacts(id));
