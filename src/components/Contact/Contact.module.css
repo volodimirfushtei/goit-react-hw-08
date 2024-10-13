@@ -8,7 +8,7 @@
   flex-direction: row;
   gap: 4px;
   height: auto;
-  background-color: transparent;
+  background-color: rgb(252, 253, 251);
   width: 320px;
   justify-content: space-between;
   transition: background-color 0.3s ease;
@@ -16,7 +16,7 @@
   border-radius: 8px;
   border: 2px solid #c0bcbc;
   &:hover {
-    background-color: #ececee;
+    background-color: #e9eee7;
     transform: translateY(-2px);
   }
 }
@@ -25,7 +25,7 @@
   margin-right: 10px;
   padding: 8px 16px;
   background-color: #e3c345;
-  color: #f4f6f5;
+  color: #f56262;
   cursor: pointer;
   border: 1px solid rgba(44, 39, 39, 0);
   transition: background-color 0.3s ease;

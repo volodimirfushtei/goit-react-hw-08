@@ -6,7 +6,7 @@ import { selectContacts } from "../../redux/Contacts/selectors.js";
 import { selectLoding } from "../../redux/contactsSlice.js";
 import { selectError } from "../../redux/contactsSlice.js";
 import Loader from "../Loader/Loader";
-
+import Error from "../Error/Error";
 const ContactList = () => {
   const contacts = useSelector(selectContacts) || [];
   const dispatch = useDispatch();
@@ -17,10 +17,14 @@ const ContactList = () => {
   };
 
   if (loading) {
-    return <Loader />; // Show the loader when loading
+    return <Loader />;
   }
   if (error) {
-    return <p>Error</p>; // Show the loader when loading
+    return (
+      <p>
+        <Error />
+      </p>
+    );
   }
   return (
     <ul className={s.contacts}>
