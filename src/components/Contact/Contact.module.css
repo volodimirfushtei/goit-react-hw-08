@@ -21,11 +21,11 @@
   }
 }
 .contact_btn {
-  font: 1.1em sans-serif;
+  font: 1.2em sans-serif;
   margin-right: 10px;
   padding: 8px 16px;
-  background-color: #f1d14e;
-  color: #e91818;
+  background-color: #c49e06;
+  color: #fff;
   cursor: pointer;
   border: 1px solid rgba(44, 39, 39, 0);
   transition: background-color 0.3s ease;
