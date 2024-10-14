@@ -47,7 +47,7 @@
 }
 .button {
   background-color: #e8be16;
-  color: white;
+  color: rgb(17, 17, 17);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -95,7 +95,12 @@
     gap: 10px;
   }
 }
-span {
+.name {
+  font-size: 14px;
+  font: 1em sans-serif;
+  color: #0e0e0e;
+}
+.number {
   font-size: 14px;
   font: 1em sans-serif;
   color: #0e0e0e;
