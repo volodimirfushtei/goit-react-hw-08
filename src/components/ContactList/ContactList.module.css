@@ -45,8 +45,7 @@
 .nocontacts {
   text-align: center;
   font-size: 2em;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 0 auto;
   transition: color 0.3s ease;
   color: #9c0505;
 }
