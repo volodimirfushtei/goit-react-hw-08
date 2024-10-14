@@ -40,7 +40,7 @@ const ContactList = () => {
           />
         ))
       ) : (
-        <li>No contacts available</li> // Message when no contacts
+        <li className={s.nocontacts}>No contacts available</li> // Message when no contacts
       )}
     </ul>
   );
