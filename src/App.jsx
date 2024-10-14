@@ -35,9 +35,11 @@ function App() {
   return (
     <div className="App">
       <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      <ContactList />
+      <main>
+        <ContactForm />
+        <SearchBox />
+        <ContactList />
+      </main>
     </div>
   );
 }
