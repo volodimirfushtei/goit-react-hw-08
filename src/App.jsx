@@ -9,6 +9,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = "https://670423d1ab8a8f89273313e7.mockapi.io/";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
