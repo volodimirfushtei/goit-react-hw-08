@@ -5,7 +5,7 @@
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 10px;
   margin: 0 auto;
-  padding: 8px;
+  padding: 8px 0 20px;
   background-color: #f7f5f5;
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
@@ -14,29 +14,22 @@
   max-height: 500px;
   margin-bottom: 2rem;
   list-style-type: none;
-  transition: background-color 0.3s ease;
-  padding-bottom: 20px;
-  &:hover {
-    background-color: #e4e2e2;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
-    color: #222;
-    background-color: #fff;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.2),
-      0 10px 20px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-  }
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+.contacts:hover {
+  background-color: #fff;
+  color: #222;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
 @media screen and (max-width: 375px) {
   .contacts {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-
     gap: 5px;
     padding-bottom: 10px;
     background-color: #f7f5f5;
