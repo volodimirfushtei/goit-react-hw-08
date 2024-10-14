@@ -40,7 +40,12 @@ const ContactList = () => {
           />
         ))
       ) : (
-        <li role="alert" className={s.nocontacts}>
+        <li
+          role="alert"
+          aria-hidden="true"
+          tabIndex="-1"
+          className={s.nocontacts}
+        >
           No contacts available
         </li> // Message when no contacts
       )}
