@@ -3,13 +3,13 @@
   font-family: "Courier New", Courier, monospace;
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin: 0 auto;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   flex-direction: row;
-  gap: 4px;
+  gap: 8px;
   height: auto;
   background-color: rgb(252, 253, 251);
-  width: 320px;
+  width: 330px;
   justify-content: space-between;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
