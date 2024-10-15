@@ -1,10 +1,12 @@
 import s from "./ContactForm.module.css";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
 import { addContacts } from "../../redux/contactsOps.js";
 // import { nanoid } from "nanoid"; // Importing nanoid for unique IDs
 import { selectFilteredContacts } from "../../redux/contactsSlice.js";
+
 // Validation schema
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -82,7 +84,7 @@ const ContactForm = () => {
               />
             </label>
           </div>
-          <button className={s.button} type="submit">
+          <button className="margin-left" type="submit">
             Add contact
           </button>
         </Form>
