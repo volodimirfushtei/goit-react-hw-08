@@ -1,14 +1,17 @@
 import "./App.css";
-import ContactList from "./components/ContactList/ContactList";
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
+import { Routes, Route } from "react-router-dom";
+
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-
+import Layout from "./components/Layout/Layout";
+import { fetchContacts } from "./redux/contacts/operations.js";
+import Home from "./Pages/Home/Home";
+import NotFound from "./Pages/NotFound/NotFound";
+import { Suspense } from "react";
+import LoginPage from "./components/LoginForm/LoginForm";
+import RegistrationPage from "./components/RegistrationForm/RegistrationForm.jsx";
 axios.defaults.baseURL = "https://670423d1ab8a8f89273313e7.mockapi.io/";
-
-import { fetchContacts } from "./redux/contactsOps";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,12 +25,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold flex justify-center">Phonebook</h1>
-      <main>
-        <ContactForm />
-        <SearchBox />
-        <ContactList />
-      </main>
+      <Suspense fallback={<h2>Loading by suspense!</h2>}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/users" element={<LoginPage />} />
+            <Route path="/about" element={<RegistrationPage />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

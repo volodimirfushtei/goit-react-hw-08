@@ -1,8 +1,8 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { deleteContacts, addContacts } from "../redux/contactsOps.js";
+import { deleteContacts, addContacts } from "../contacts/operations";
 import { createSelector } from "reselect";
-import { fetchContacts } from "../redux/contactsOps";
-const contactsSlice = createSlice({
+import { fetchContacts } from "../contacts/operations.js";
+const slice = createSlice({
   name: "contacts",
   initialState: {
     items: [],
@@ -63,13 +63,16 @@ export const selectFilteredContacts = createSelector(
   [(state) => state.contacts.items, selectNameFilter],
   (contacts, filter) => {
     if (!filter) return contacts;
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+
+    return contacts.filter(
+      (contact) =>
+        contact.name.toLowerCase().includes(filter.toLowerCase()) ||
+        contact.number.includes(filter) // Додаємо логічний оператор "або"
     );
   }
 );
 
-export const contactReducer = contactsSlice.reducer;
+export const contactReducer = slice.reducer;
 export const selectLoading = (state) => state.contacts.loading;
 export const selectError = (state) => state.contacts.error;
 

@@ -23,9 +23,9 @@
   margin-top: 10px;
 }
 .span {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  font: 1.4em sans-serif;
+  font: 0.8em sans-serif;
   color: #322601;
   text-align: left;
 }
@@ -55,7 +55,7 @@
   width: 440px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   &:hover {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;

@@ -1,6 +1,6 @@
 .contacts {
   display: grid;
-  min-width: 1380px;
+  min-width: 1440px;
   font: sans-serif;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 4px;
@@ -48,4 +48,7 @@
   margin: 0 auto;
   transition: color 0.3s ease;
   color: #9c0505;
+}
+.Loader {
+  border-radius: 50%;
 }

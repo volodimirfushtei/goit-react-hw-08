@@ -3,10 +3,12 @@ import s from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
-import { addContacts } from "../../redux/contactsOps.js";
+import { addContacts } from "../../redux/contacts/operations.js";
 // import { nanoid } from "nanoid"; // Importing nanoid for unique IDs
-import { selectFilteredContacts } from "../../redux/contactsSlice.js";
-
+import { selectFilteredContacts } from "../../redux/contacts/slice.js";
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
+import { toast } from "react-hot-toast";
 // Validation schema
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -41,6 +43,7 @@ const ContactForm = () => {
     }
 
     dispatch(addContacts({ name: values.name, number: values.number }));
+    toast.success("Contact added successfully!");
     resetForm();
   };
 
@@ -84,9 +87,35 @@ const ContactForm = () => {
               />
             </label>
           </div>
-          <button className="margin-left" type="submit">
+          <Button
+            color="secondary"
+            startIcon={<AddIcon />}
+            variant="contained"
+            className="s.button"
+            type="submit"
+            size="medium"
+            sx={{
+              marginRight: 1,
+
+              "&:hover": {
+                bgcolor: "secondary.light",
+                color: "secondary.contrastText",
+
+                "&:focus": {
+                  outline: "none",
+                  "&:active": {
+                    transform: "scale(0.95)",
+
+                    "&:active:focus": {
+                      outline: "none",
+                    },
+                  },
+                },
+              },
+            }}
+          >
             Add contact
-          </button>
+          </Button>
         </Form>
       </Formik>
     </div>

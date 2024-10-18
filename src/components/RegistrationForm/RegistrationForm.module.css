@@ -1,0 +1,124 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  min-height: 80vh;
+  padding: 20px;
+  color: #333;
+  text-align: center;
+  flex-direction: column;
+  background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);
+  background-size: cover;
+  background-position: center;
+  opacity: 60;
+  transition: background-color 300ms;
+  will-change: background-color;
+  cursor: pointer;
+  &:hover {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+  }
+  &:active {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+  }
+  &:focus {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+  }
+  &:focus-visible {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ebe7e7;
+  margin: 0;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #faf8f8;
+    transition: color 0.3s ease;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    color: #000;
+    transition: color 0.3s ease;
+  }
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.formControl {
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.labelText {
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.875rem;
+}
+.description {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+  color: #f7f2f2;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #d5d0d0;
+    transition: color 0.3s ease;
+  }
+}
+.textCenter {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: #f3f4f6;
+  padding: 0 40px 0 40px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: margin-top 0.3s ease, margin-bottom 0.3s ease;
+  &:hover {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transition: margin-top 0.3s ease, margin-bottom 0.3s ease;
+  }
+}
