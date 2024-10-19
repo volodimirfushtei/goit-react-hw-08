@@ -29,8 +29,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/users" element={<LoginPage />} />
-            <Route path="/about" element={<RegistrationPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegistrationPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

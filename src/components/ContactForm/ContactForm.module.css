@@ -3,8 +3,8 @@
   padding: 10px;
   border: none;
   border-bottom: 1px solid #ccc;
-  background-color: #f9f5f5;
-  color: rgb(39, 37, 37);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: rgb(219, 213, 213);
   border-radius: 5px;
   border: 1px solid #aeaaaa;
   font-size: 16px;
@@ -86,13 +86,13 @@
   max-width: 420px;
   margin-bottom: 20px;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #e9ecef;
+    background-color: rgba(0, 0, 0, 0.6);
     transition: background-color 0.3s ease-in-out;
   }
 
@@ -104,10 +104,10 @@
 .name {
   font-size: 14px;
   font: 1em sans-serif;
-  color: #0e0e0e;
+  color: #f1ecec;
 }
 .number {
   font-size: 14px;
   font: 1em sans-serif;
-  color: #0e0e0e;
+  color: #f5f2f2;
 }

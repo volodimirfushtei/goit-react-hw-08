@@ -6,7 +6,7 @@
   gap: 4px;
   margin: 0 auto;
   padding: 8px 0 20px;
-  background-color: #f7f5f5;
+  background-color: rgba(0, 0, 0, 0.05);
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   align-items: center;
@@ -18,7 +18,7 @@
 }
 
 .contacts:hover {
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.15);
   color: #222;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.2),
     0 10px 20px rgba(0, 0, 0, 0.3);

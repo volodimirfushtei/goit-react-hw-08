@@ -12,11 +12,10 @@ const Header = () => {
           Home
         </NavLink>
         <h1 className="s.h1">Phonebook</h1>
-
-        <NavLink className={buildLinkClass} to="/about">
+        <NavLink className={buildLinkClass} to="/register">
           Register
         </NavLink>
-        <NavLink className={buildLinkClass} to="/users">
+        <NavLink className={buildLinkClass} to="/login">
           Log in
         </NavLink>
       </div>

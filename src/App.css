@@ -18,11 +18,11 @@
 }
 h1 {
   font-size: 3em;
-  margin: 0;
+  margin: 0 auto;
   line-height: 1.1;
   font-weight: 700;
-  width: 1200px;
-  background-color: #333335;
+  width: 1300px;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 0;
   border-radius: 10px 10px 0 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.2);
@@ -33,18 +33,30 @@ h1 {
     transform: translateY(-2px);
     transition: transform 300ms;
     will-change: transform;
-    color: #222;
-    background-color: #fff;
+    color: #f3eeee;
+    background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.2),
       0 10px 20px rgba(0, 0, 0, 0.3);
   }
 }
 .App {
+  position: relative;
   background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);
   background-size: cover;
   background-position: center;
-  opacity: 60;
   transition: background-color 300ms;
   will-change: background-color;
+}
+
+.App::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0.6;
+  pointer-events: none;
 }

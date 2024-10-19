@@ -3,10 +3,11 @@ import * as Yup from "yup";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import styles from "./RegistrationForm.module.css"; // Імпорт модульних стилів
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/auth/operations.js";
 
-// Валідаційна схема
 const validationSchema = Yup.object({
-  username: Yup.string()
+  name: Yup.string()
     .min(3, "Username must be at least 3 characters")
     .required("Username is required"),
   email: Yup.string()
@@ -18,10 +19,11 @@ const validationSchema = Yup.object({
 });
 
 const RegistrationForm = () => {
-  const handleSubmit = (values) => {
-    // Логіка для обробки реєстрації
+  const dispatch = useDispatch();
+  const handleSubmit = (values, options) => {
     console.log("Form values:", values);
-    // Тут можна додати логіку для реєстрації користувача
+    dispatch(register(values, options));
+    options.resetForm();
   };
 
   return (
@@ -33,7 +35,7 @@ const RegistrationForm = () => {
         </div>
         <div className={styles.card}>
           <Formik
-            initialValues={{ username: "", email: "", password: "" }}
+            initialValues={{ name: "", email: "", password: "" }}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
@@ -41,19 +43,19 @@ const RegistrationForm = () => {
               <Form className={styles.cardBody}>
                 <div className={styles.formControl}>
                   <label className={styles.label}>
-                    <span className={styles.labelText}>Username</span>
+                    <span className={styles.labelText}>Name</span>
                   </label>
                   <Field
                     as={TextField}
-                    name="username"
-                    placeholder="Username"
+                    name="name"
+                    placeholder="Name"
                     className={styles.input}
                     variant="outlined"
                     fullWidth
                     required
                   />
                   <ErrorMessage
-                    name="username"
+                    name="name"
                     component="div"
                     className={styles.errorMessage}
                   />

@@ -3,7 +3,8 @@ import * as Yup from "yup";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import s from "./LoginForm.module.css";
-
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/operations.js";
 const validationSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email format")
@@ -14,8 +15,11 @@ const validationSchema = Yup.object({
 });
 
 const LoginForm = () => {
-  const handleSubmit = (values) => {
+  const dispatch = useDispatch();
+  const handleSubmit = (values, options) => {
     console.log("Form values:", values);
+    dispatch(login(values));
+    options.resetForm();
   };
 
   return (
