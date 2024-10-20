@@ -5,12 +5,15 @@ import Button from "@mui/material/Button";
 import s from "./LoginForm.module.css";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations.js";
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 const validationSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email format")
     .required("Email is required"),
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
+    .min(8, "Password must be at least 8 characters")
     .required("Password is required"),
 });
 
@@ -21,6 +24,8 @@ const LoginForm = () => {
     dispatch(login(values));
     options.resetForm();
   };
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  if (isLoggedIn) return <Navigate to="/" />;
 
   return (
     <div className={s.hero}>

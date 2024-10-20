@@ -41,5 +41,20 @@
   }
 }
 .nameuser {
-  color: azure;
+  color: rgb(75, 235, 91);
+  display: flex;
+}
+.name_wrapp {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.login {
+  color: rgb(237, 86, 86);
+  display: flex;
+  gap: 4px;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }

@@ -14,7 +14,7 @@ const validationSchema = Yup.object({
     .email("Invalid email format")
     .required("Email is required"),
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
+    .min(8, "Password must be at least 8 characters")
     .required("Password is required"),
 });
 
@@ -22,7 +22,7 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   const handleSubmit = (values, options) => {
     console.log("Form values:", values);
-    dispatch(register(values, options));
+    dispatch(register(values));
     options.resetForm();
   };
 
