@@ -21,7 +21,7 @@ const DeleteModal = ({ open, handleClose, handleDeleteContact }) => {
           left: "50%",
           transform: "translate(-50%, -50%)",
           width: 300,
-          bgcolor: "rgba(0, 0, 0, 0.7)",
+          bgcolor: "rgba(0, 0, 0, 0.75)",
           border: "2px solid #000",
           boxShadow: theme.shadows[5],
           p: 4,
