@@ -1,9 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors.js";
-import { logout } from "../../redux/auth/operations.js";
-import Button from "@mui/material/Button";
+import { NavLink } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
+// Додайте імпорт для кнопки
 import s from "./AuthNav.module.css";
+import clsx from "clsx";
 
 function stringToColor(string) {
   if (!string) return "#000"; // Повертаємо чорний колір, якщо рядок порожній або null
@@ -32,37 +33,30 @@ function stringAvatar(name) {
 }
 
 const AuthNav = () => {
-  const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const token = useSelector((state) => state.auth.token);
 
-  const handleLogout = () => {
-    if (isLoggedIn && token) {
-      dispatch(logout());
-    }
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(s.link, isActive && s.activeLink);
   };
 
   return (
     <div className={s.name_wrapp}>
-      {user ? (
-        <>
-          <Avatar {...stringAvatar(user.name)} />
+      <h1 className={s.h1}>Phonebook</h1>
+      <Avatar {...stringAvatar(user.name)} />
+      <div className={s.name_wrapp}>
+        {isLoggedIn ? (
           <div className={s.nameuser}>{user.name}</div>
-
-          <Button
-            type="button"
-            variant="contained"
-            size="small"
-            color="secondary"
-            onClick={handleLogout}
-          >
-            Logout
-          </Button>
-        </>
-      ) : (
-        <div className={s.login}>Please log in</div>
-      )}
+        ) : (
+          <div className={s.login}>Try to log in</div>
+        )}
+      </div>
+      <NavLink className={buildLinkClass} to="/register">
+        Register
+      </NavLink>
+      <NavLink className={buildLinkClass} to="/login">
+        Log in
+      </NavLink>
     </div>
   );
 };

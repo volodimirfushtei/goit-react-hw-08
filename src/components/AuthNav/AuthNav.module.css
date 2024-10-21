@@ -1,5 +1,6 @@
 .wrapper {
   display: flex;
+  height: 50px;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -8,10 +9,17 @@
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.7);
   transition: background-color 0.3s ease;
+  border-bottom: 2px solid #fff;
+  border-top: 2px solid #fff;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: background-color 0.3s ease;
+  }
 }
 .link {
   color: white;
   font-weight: bold;
+  margin-right: 8px;
 }
 .activeLink {
   color: rgb(192, 86, 237);
@@ -26,23 +34,24 @@
   margin-left: 10px;
 }
 .h1 {
-  font-size: 28px;
-  width: 1350px;
+  font-size: 34px;
+  width: 1000px;
   font-weight: bold;
-  color: white;
+  color: rgb(237, 226, 226);
   text-align: center;
 
   transition: color 0.3s ease;
   &:hover {
-    color: black;
+    color: rgb(235, 228, 228);
   }
   &:active {
-    color: black;
+    color: rgb(228, 220, 220);
   }
 }
 .nameuser {
   color: rgb(75, 235, 91);
   display: flex;
+  margin-left: 16px;
 }
 .name_wrapp {
   display: flex;

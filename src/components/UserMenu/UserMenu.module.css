@@ -5,15 +5,6 @@
   padding: 20px;
   color: white;
   font-weight: 700;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.7);
-  transition: background-color 0.3s ease;
-  border-bottom: 2px solid #fff;
-  border-top: 2px solid #fff;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-    transition: background-color 0.3s ease;
-  }
 }
 .link {
   color: white;
@@ -33,7 +24,7 @@
 }
 .h1 {
   font-size: 34px;
-  width: 1250px;
+  width: 1000px;
   font-weight: bold;
   color: rgb(237, 226, 226);
   text-align: center;
@@ -49,6 +40,13 @@
 .nameuser {
   color: rgb(75, 235, 91);
   display: flex;
+  margin: 0 12px 0 12px;
+  transition: color 0.3s ease;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  &:hover {
+    color: rgb(45, 188, 23);
+  }
 }
 .name_wrapp {
   display: flex;
