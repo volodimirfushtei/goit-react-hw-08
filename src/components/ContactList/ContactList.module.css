@@ -5,7 +5,7 @@
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 4px;
   margin: 0 auto;
-  padding: 8px 0 20px;
+  padding: 8px 8px 20px;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 5px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
@@ -43,11 +43,14 @@
   }
 }
 .nocontacts {
-  text-align: center;
   font-size: 2em;
-  margin: 0 auto;
+  margin-left: 630px;
   transition: color 0.3s ease;
-  color: #9c0505;
+  color: #b60808;
+  margin-top: 2rem;
+  width: auto;
+  display: grid;
+  place-items: center; /* Вертикальне та горизонтальне центрування */
 }
 .Loader {
   border-radius: 50%;

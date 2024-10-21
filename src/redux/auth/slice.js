@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register } from "./operations";
-import { login } from "./operations";
-import { logout } from "./operations";
+import { register, login, logout, refreshUser } from "./operations"; // Додайте refresh тут
+
 const initialState = {
   user: {
     name: null,
@@ -40,13 +39,19 @@ const authSlice = createSlice({
       })
       .addCase(logout.rejected, (state, action) => {
         console.error("Logout failed:", action.payload);
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.user = action.payload;
+        state.isRefreshing = false;
+
+        state.isLoggedIn = true;
       });
   },
 });
 
+// Експорти
 export const { setIsRefreshing } = authSlice.actions;
-
 export default authSlice.reducer;
-export const selectUser = authSlice.reducer;
-
-export const { setUser } = authSlice.actions;
+export const selectUser = (state) => state.auth.user; // Виправлено, щоб повертати користувача з стану

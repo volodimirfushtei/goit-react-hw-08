@@ -7,6 +7,7 @@ import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors.js";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/auth/operations.js";
+
 function stringToColor(string) {
   let hash = 0;
   let i;
@@ -57,6 +58,9 @@ const UserMenu = () => {
       <div className={s.wrapperLinks}>
         <NavLink className={buildLinkClass} to="/">
           Home
+        </NavLink>
+        <NavLink className={buildLinkClass} to="/contacts">
+          Contacts
         </NavLink>
         <div className={s.name_wrapp}>
           {user ? (

@@ -70,7 +70,7 @@ const ContactList = () => {
             tabIndex="-1"
             className={s.nocontacts}
           >
-            No contacts available
+            Contacts are unavailable
           </li>
         )}
       </ul>

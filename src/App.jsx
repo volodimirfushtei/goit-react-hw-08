@@ -1,34 +1,44 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-
-import axios from "axios";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, Suspense } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Layout from "./components/Layout/Layout";
-import { fetchContacts } from "./redux/contacts/operations.js";
-import Home from "./Pages/Home/Home";
+import ContactsPage from "./Pages/ContactsPage/ContactsPage";
 import NotFound from "./Pages/NotFound/NotFound";
-import { Suspense } from "react";
 import LoginPage from "./components/LoginForm/LoginForm";
 import RegistrationPage from "./components/RegistrationForm/RegistrationForm.jsx";
-axios.defaults.baseURL = "https://670423d1ab8a8f89273313e7.mockapi.io/";
-
+import { refreshUser } from "./redux/auth/operations.js";
+import { selectIsRefreshing } from "./redux/auth/selectors.js";
+import HomePage from "./Pages/HomePage/HomePage.jsx";
+import { PrivateRoute } from "./components/privateRoute.jsx";
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const loadingContacts = async () => {
-      dispatch(fetchContacts());
-    };
-    loadingContacts();
+    dispatch(refreshUser());
   }, [dispatch]);
+
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  if (isRefreshing) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
     <div className="App">
-      <Suspense fallback={<h2>Loading by suspense!</h2>}>
+      <Suspense fallback={<h2>Loading components...</h2>}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Home />} />
+            <Route index element={<HomePage />} />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute
+                  component={<ContactsPage />}
+                  redirectTo="/login"
+                />
+              }
+            />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegistrationPage />} />
           </Route>
