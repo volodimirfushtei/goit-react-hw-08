@@ -9,18 +9,22 @@ const slice = createSlice({
     loading: false,
     error: null,
   },
+  reducers: [],
   extraReducers: (builder) => {
     builder
-      .addCase(fetchContacts.pending, (state) => {
+      .addCase(fetchContacts.pending, (state, action) => {
         state.loading = true;
         state.error = null;
+        state.token = action.payload.token;
       })
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.loading = false;
         state.items = action.payload;
+        state.token = action.payload.token;
       })
       .addCase(deleteContacts.fulfilled, (state, action) => {
         state.loading = false;
+        state.token = action.payload.token;
         state.items = state.items.filter(
           (contact) => contact.id !== action.payload
         );
@@ -28,10 +32,12 @@ const slice = createSlice({
       .addCase(addContacts.fulfilled, (state, action) => {
         state.loading = false;
         state.items.push(action.payload);
+        state.token = action.payload.token;
       })
       .addCase(addContacts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        state.token = action.payload.token;
       })
       .addMatcher(
         isAnyOf(
@@ -67,7 +73,7 @@ export const selectFilteredContacts = createSelector(
     return contacts.filter(
       (contact) =>
         contact.name.toLowerCase().includes(filter.toLowerCase()) ||
-        contact.number.includes(filter) // Додаємо логічний оператор "або"
+        contact.number.includes(filter)
     );
   }
 );

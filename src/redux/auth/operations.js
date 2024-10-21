@@ -5,15 +5,19 @@ export const goitApi = axios.create({
   baseURL: "https://connections-api.goit.global",
 });
 
+const setAuth = (token) => {
+  goitApi.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
 export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkApi) => {
     try {
       const { data } = await goitApi.post("/users/signup", credentials);
+      setAuth();
       return data;
     } catch (error) {
       if (error.response) {
-        // Перевірка на код помилки для дублікатів
         if (
           error.response.status === 400 &&
           error.response.data.code === 11000
@@ -30,11 +34,14 @@ export const register = createAsyncThunk(
     }
   }
 );
+
 export const login = createAsyncThunk(
   "auth/login",
   async (credentials, thunkApi) => {
     try {
-      const { data } = await goitApi.post("users/login", credentials);
+      const { data } = await goitApi.post("/users/login", credentials);
+      setAuth(data.token);
+      console.log("Token set to:", data.token);
       return data;
     } catch (error) {
       if (error.response) {
@@ -46,16 +53,11 @@ export const login = createAsyncThunk(
     }
   }
 );
-export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
-  const state = thunkApi.getState();
-  const token = state.auth.token; // Отримуємо токен з Redux
 
+export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
   try {
-    const response = await goitApi.post("users/logout", null, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await goitApi.post("/users/logout");
+    setAuth();
     return response.data;
   } catch (error) {
     console.error(
@@ -67,3 +69,17 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
     );
   }
 });
+
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await goitApi.get("/users/current");
+      setAuth();
+      return data;
+    } catch (error) {
+      console.error("Refresh user error:", error);
+      return thunkAPI.rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);

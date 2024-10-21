@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import s from "./Header.module.css";
+import s from "./UserMenu.module.css";
 import clsx from "clsx";
 import Avatar from "@mui/material/Avatar";
 import { useSelector } from "react-redux";
-import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
+import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors.js";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/auth/operations.js";
@@ -33,7 +33,7 @@ function stringAvatar(name) {
   };
 }
 
-const Header = () => {
+const UserMenu = () => {
   const dispatch = useDispatch();
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.activeLink);
@@ -94,4 +94,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default UserMenu;

@@ -1,17 +1,27 @@
-import axios from "axios";
-
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-axios.defaults.baseURL = "https://670423d1ab8a8f89273313e7.mockapi.io/";
-
+import { goitApi } from "../auth/operations";
+const setAuth = (token) => {
+  goitApi.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+    console.log("Current token:", token); // Check if token is retrieved correctly
+
+    setAuth(token); // Set auth header
+
+    if (!token) {
+      console.error("No token found");
+      return thunkAPI.rejectWithValue("No token found");
+    }
+
     try {
-      const response = await axios.get("/contacts");
+      const response = await goitApi.get("/contacts");
       return response.data;
     } catch (error) {
-      console.error("Failed:", error);
+      console.error("Fetch contacts failed:", error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -20,8 +30,18 @@ export const fetchContacts = createAsyncThunk(
 export const deleteContacts = createAsyncThunk(
   "contacts/deleteContact",
   async (id, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+
+    if (!token) {
+      console.error("No token ");
+      return thunkAPI.rejectWithValue("No token ");
+    }
+
+    setAuth(token);
+
     try {
-      await axios.delete(`/contacts/${id}`);
+      await goitApi.delete(`/contacts/${id}`);
       return id;
     } catch (error) {
       console.error("Failed:", error);
@@ -33,8 +53,18 @@ export const deleteContacts = createAsyncThunk(
 export const addContacts = createAsyncThunk(
   "contacts/addContact",
   async (contact, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+
+    if (!token) {
+      console.error("No token ");
+      return thunkAPI.rejectWithValue("No token ");
+    }
+
+    setAuth(token);
+
     try {
-      const response = await axios.post("/contacts", contact);
+      const response = await goitApi.post("/contacts", contact);
       return response.data;
     } catch (error) {
       console.error("Failed:", error);
