@@ -10,7 +10,7 @@ import RegistrationPage from "./components/RegistrationForm/RegistrationForm.jsx
 import { refreshUser } from "./redux/auth/operations.js";
 import { selectIsRefreshing } from "./redux/auth/selectors.js";
 import HomePage from "./Pages/HomePage/HomePage.jsx";
-import PrivateRoute from "./components/privateRoute.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 import RestrictedRoute from "./components/RestrictedRoute.jsx";
 function App() {
   const dispatch = useDispatch();
