@@ -58,7 +58,5 @@ const authSlice = createSlice({
   },
 });
 
-// Експорти
 export const { setIsRefreshing } = authSlice.actions;
 export default authSlice.reducer;
-export const selectUser = (state) => state.auth.user; // Виправлено, щоб повертати користувача з стану

@@ -8,9 +8,9 @@ export const fetchContacts = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.auth.token;
-    console.log("Current token:", token); // Check if token is retrieved correctly
+    console.log("Current token:", token);
 
-    setAuth(token); // Set auth header
+    setAuth(token);
 
     if (!token) {
       console.error("No token found");

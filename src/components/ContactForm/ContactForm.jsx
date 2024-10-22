@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
 import { addContacts } from "../../redux/contacts/operations.js";
 // import { nanoid } from "nanoid"; // Importing nanoid for unique IDs
-import { selectFilteredContacts } from "../../redux/contacts/slice.js";
+import { selectFilteredContacts } from "../../redux/contacts/selectors.js";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import { toast } from "react-hot-toast";

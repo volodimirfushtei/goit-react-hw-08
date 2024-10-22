@@ -74,18 +74,18 @@ export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
     const savedToken = thunkAPI.getState().auth.token;
-
     if (!savedToken) {
-      return thunkAPI.rejectWithValue("No token found");
+      return thunkAPI.rejectWithValue("Токен не знайдено");
     }
 
     try {
-      setAuth(savedToken); // Встановлюємо токен у заголовки
-      const response = await goitApi.get("/users/current"); // Запит для отримання даних користувача
-
-      return response.data; // Повертаємо дані користувача
+      setAuth(savedToken);
+      const response = await goitApi.get("/users/current");
+      return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message); // Обробка помилки
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
     }
   }
 );

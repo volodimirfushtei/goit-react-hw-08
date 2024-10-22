@@ -5,13 +5,13 @@ import {
   deleteContacts,
   fetchContacts,
 } from "../../redux/contacts/operations.js";
-import { selectLoading, selectError } from "../../redux/contacts/slice.js";
+import { selectLoading, selectError } from "../../redux/contacts/selectors.js";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 import { useEffect, useState } from "react";
 import DeleteModal from "../../components/DeleteModal/DeleteModal.jsx";
 import { toast } from "react-hot-toast";
-import { selectFilteredContacts } from "../../redux/contacts/slice";
+import { selectFilteredContacts } from "../../redux/contacts/selectors.js";
 const ContactList = () => {
   const contacts = useSelector((state) => state.contacts.items);
   console.log("All contacts in state:", contacts);
