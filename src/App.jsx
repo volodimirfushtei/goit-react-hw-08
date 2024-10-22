@@ -3,13 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "./components/Layout/Layout";
-import ContactsPage from "./Pages/ContactsPage/ContactsPage";
+import ContactsPage from "./pages/ContactsPage/ContactsPage.jsx";
 
 import LoginPage from "./components/LoginForm/LoginForm";
 import RegistrationPage from "./components/RegistrationForm/RegistrationForm.jsx";
 import { refreshUser } from "./redux/auth/operations.js";
 import { selectIsRefreshing } from "./redux/auth/selectors.js";
-import HomePage from "./Pages/HomePage/HomePage.jsx";
+import HomePage from "./pages/HomePage/HomePage.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import RestrictedRoute from "./components/RestrictedRoute.jsx";
 function App() {
