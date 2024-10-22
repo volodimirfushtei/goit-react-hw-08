@@ -14,6 +14,13 @@ const initialState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
+  reducers: {
+    setToken(state, action) {
+      state.token = action.payload;
+      state.isLoggedIn = !!action.payload; // Підрахунок стану авторизації
+    },
+    // Інші редюсери...
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => {

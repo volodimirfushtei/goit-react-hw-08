@@ -6,7 +6,11 @@ export const goitApi = axios.create({
 });
 
 const setAuth = (token) => {
-  goitApi.defaults.headers.common.Authorization = `Bearer ${token}`;
+  if (token) {
+    goitApi.defaults.headers.common.Authorization = `Bearer ${token}`;
+  } else {
+    delete goitApi.defaults.headers.common.Authorization;
+  }
 };
 
 export const register = createAsyncThunk(
@@ -14,7 +18,7 @@ export const register = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
       const { data } = await goitApi.post("/users/signup", credentials);
-      setAuth();
+      setAuth(data.token); // Встановлення токена
       return data;
     } catch (error) {
       if (error.response) {
@@ -40,14 +44,14 @@ export const login = createAsyncThunk(
   async (credentials, thunkApi) => {
     try {
       const { data } = await goitApi.post("/users/login", credentials);
-      setAuth(data.token);
+      setAuth(data.token); // Встановлення токена
       console.log("Token set to:", data.token);
       return data;
     } catch (error) {
       if (error.response) {
-        console.error("Logining error details:", error.response.data);
+        console.error("Login error details:", error.response.data);
       } else {
-        console.error("Logining error:", error.message);
+        console.error("Login error:", error.message);
       }
       return thunkApi.rejectWithValue(error.response?.data || error.message);
     }
@@ -56,9 +60,9 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk("auth/logout", async (_, thunkApi) => {
   try {
-    const response = await goitApi.post("/users/logout");
-    setAuth();
-    return response.data;
+    await goitApi.post("/users/logout");
+    setAuth(); // Скидання токена
+    return { token: null };
   } catch (error) {
     console.error(
       "Logout error:",
@@ -74,6 +78,8 @@ export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
     const savedToken = thunkAPI.getState().auth.token;
+    console.log("Current token:", savedToken);
+
     if (!savedToken) {
       return thunkAPI.rejectWithValue("Токен не знайдено");
     }
