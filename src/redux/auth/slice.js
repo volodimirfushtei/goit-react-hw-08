@@ -47,6 +47,13 @@ const authSlice = createSlice({
         state.isRefreshing = false;
 
         state.isLoggedIn = true;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.rejected, (state, action) => {
+        console.error("Refresh failed:", action.payload);
+        state.isRefreshing = false;
       });
   },
 });
