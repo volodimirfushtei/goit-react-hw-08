@@ -1,0 +1,45 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6; /* Задайте фон */
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.description {
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.label-text {
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+}
