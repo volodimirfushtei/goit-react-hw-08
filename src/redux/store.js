@@ -28,11 +28,8 @@ const rootReducer = combineReducers({
   auth: persistReducer(persistConfig, authSlice),
 });
 
-// Обгортка rootReducer в persistReducer
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
