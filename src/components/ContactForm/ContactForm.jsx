@@ -18,7 +18,7 @@ const validationSchema = Yup.object({
   number: Yup.string()
     .matches(/^\+?[0-9\s()-]+$/, "Must be a valid phone number")
     .required("Number is required")
-    .min(3, "Too Short!")
+    .min(5, "Too Short!")
     .max(50, "Too Long!"),
 });
 
