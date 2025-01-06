@@ -33,12 +33,13 @@
   margin-right: 10px;
   margin-left: 10px;
 }
-.h1 {
+.title {
   font-size: 34px;
-  width: 1000px;
+  max-width: 900px;
   font-weight: bold;
   color: rgb(237, 226, 226);
   text-align: center;
+  margin: 0 auto;
 
   transition: color 0.3s ease;
   &:hover {
@@ -66,4 +67,23 @@
   gap: 4px;
   font-weight: bold;
   transition: color 0.3s ease;
+}
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 20px;
+    height: 70px;
+  }
+  .h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 375px) {
+  .wrapper {
+    padding: 10px;
+    height: 40px;
+  }
+  .h1 {
+    font-size: 24px;
+  }
 }

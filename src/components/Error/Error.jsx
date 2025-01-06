@@ -5,9 +5,8 @@ const Error = () => {
     <div className={s.body}>
       <div className={s.errorloader}>
         <div className={s.erroricon} />
-        <p className={s.errormessage}>Error fetching!</p>
+        <p className={s.errormessage}>No contacts </p>
       </div>
-      ;
     </div>
   );
 };

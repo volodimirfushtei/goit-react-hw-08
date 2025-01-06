@@ -1,5 +1,6 @@
 .homepage_wrapp {
   font-size: large;
+  max-width: 1480px;
   min-height: 700px;
   font-weight: 700;
   color: #212121;
@@ -14,15 +15,15 @@
 .title {
   font-size: 2.5em;
   font-weight: bold;
-  color: #ca1212;
+  color: #de0df1;
   transition: color 0.3s ease;
   margin-top: 20px;
   &:hover {
-    color: rgb(243, 77, 77);
+    color: rgb(159, 16, 184);
     transition: color 0.3s ease;
   }
   &:active {
-    color: rgb(240, 237, 237);
+    color: rgb(203, 18, 244);
   }
 }
 .p {
@@ -34,4 +35,12 @@
     color: rgb(251, 248, 248);
     transition: color 0.3s ease;
   }
+}
+.contacts_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  width: 1380px;
 }

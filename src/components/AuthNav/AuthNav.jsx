@@ -16,20 +16,20 @@ const AuthNav = () => {
 
   return (
     <div className={s.name_wrapp}>
-      <h1 className={s.h1}>Phonebook</h1>
+      <h1 className={s.title}>Phonebook</h1>
       <Avatar />
       <div className={s.name_wrapp}>
         {isLoggedIn ? (
           <div className={s.nameuser}>{user.name}</div>
         ) : (
-          <div className={s.login}>Try to log in</div>
+          <div className={s.login}> Log in</div>
         )}
       </div>
       <NavLink className={buildLinkClass} to="/register">
         Register
       </NavLink>
       <NavLink className={buildLinkClass} to="/login">
-        Log in
+        Login
       </NavLink>
     </div>
   );

@@ -17,9 +17,8 @@ const authSlice = createSlice({
   reducers: {
     setToken(state, action) {
       state.token = action.payload;
-      state.isLoggedIn = !!action.payload; // Підрахунок стану авторизації
+      state.isLoggedIn = !!action.payload;
     },
-    // Інші редюсери...
   },
   extraReducers: (builder) => {
     builder

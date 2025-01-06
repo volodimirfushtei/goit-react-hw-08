@@ -24,16 +24,13 @@ const Contact = ({ name, number, onDelete }) => {
         size="small"
         sx={{
           marginRight: 1,
-
           "&:hover": {
             bgcolor: "secondary.light",
             color: "secondary.contrastText",
-
             "&:focus": {
               outline: "none",
               "&:active": {
                 transform: "scale(0.95)",
-
                 "&:active:focus": {
                   outline: "none",
                 },

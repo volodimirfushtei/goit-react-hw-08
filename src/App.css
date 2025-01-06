@@ -47,7 +47,7 @@ h1 {
   background-position: center;
   transition: background-color 300ms;
   will-change: background-color;
-  min-height: 836px;
+  height: 836px;
 }
 
 .App::after {
@@ -57,7 +57,7 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(9, 9, 9, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
   opacity: 0.6;
   pointer-events: none;
 }
