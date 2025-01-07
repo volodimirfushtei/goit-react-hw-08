@@ -1,6 +1,5 @@
 import { Modal, Box, Typography, Button } from "@mui/material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-
 const DeleteModal = ({ open, handleClose, handleDeleteContact }) => {
   return (
     <Modal

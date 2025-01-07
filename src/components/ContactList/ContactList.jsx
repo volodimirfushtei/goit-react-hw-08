@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import DeleteModal from "../../components/DeleteModal/DeleteModal.jsx";
 import { toast } from "react-hot-toast";
 import { selectFilteredContacts } from "../../redux/contacts/selectors.js";
+import { motion } from "framer-motion";
+
 const ContactList = () => {
   const contacts = useSelector((state) => state.contacts.items);
   console.log("All contacts in state:", contacts);
@@ -24,17 +26,14 @@ const ContactList = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
   const handleOpen = (id) => {
     setSelectedContactId(id);
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
     setSelectedContactId(null);
   };
-
   const handleDeleteContact = () => {
     dispatch(deleteContacts(selectedContactId)).then(() => {
       toast.success("Contact deleted successfully!");
@@ -42,26 +41,35 @@ const ContactList = () => {
       dispatch(fetchContacts());
     });
   };
-
   if (loading) {
     return <Loader className={s.Loader} />;
   }
   if (error) {
     return <Error />;
   }
-
   return (
     <>
       <ul className={s.contacts}>
         {filteredContacts.length > 0 ? (
-          filteredContacts.map((contact) => (
-            <Contact
+          filteredContacts.map((contact, index) => (
+            <motion.li
               key={contact.id}
-              id={contact.id}
-              name={contact.name}
-              number={contact.number}
-              onDelete={() => handleOpen(contact.id)}
-            />
+              className={s.contactItem}
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.5,
+              }}
+            >
+              <Contact
+                key={contact.id}
+                id={contact.id}
+                name={contact.name}
+                number={contact.number}
+                onDelete={() => handleOpen(contact.id)}
+              />
+            </motion.li>
           ))
         ) : (
           <li
@@ -77,7 +85,7 @@ const ContactList = () => {
       <DeleteModal
         open={open}
         handleClose={handleClose}
-        handleDeleteContact={handleDeleteContact} // Підтвердження видалення
+        handleDeleteContact={handleDeleteContact}
       />
     </>
   );

@@ -1,12 +1,13 @@
 .wrapperAppBar {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
   color: white;
   font-weight: 700;
   margin-top: 20px;
-  height: 50px;
+  height: 40px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.7);
   transition: background-color 0.3s ease;
@@ -15,5 +16,75 @@
   &:hover {
     background-color: rgba(0, 0, 0, 0.9);
     transition: background-color 0.3s ease;
+  }
+}
+@media (min-width: 768px) {
+  .wrapperAppBar {
+    padding: 10px 20px;
+    height: 40px;
+    gap: 20px;
+    width: auto;
+  }
+}
+.h1 {
+  font-size: 24px;
+}
+.link {
+  color: white;
+  font-weight: bold;
+}
+.activeLink {
+  color: rgb(192, 86, 237);
+}
+.wrapperLinks {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media (min-width: 375px) {
+  .wrapperAppBar {
+    padding: 20px 40px;
+    height: 30px;
+    gap: 20px;
+    width: auto;
+  }
+  .h1 {
+    font-size: 34px;
+  }
+  .wrapperLinks {
+    gap: 15px;
+  }
+  .wrapperLinks a {
+    font-size: 18px;
+  }
+  .wrapperLinks.activeLink {
+    color: rgb(192, 86, 237);
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  .wrapperLinks {
+    animation: slideIn 0.5s;
+  }
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+  .wrapperLinks {
+    animation: slideOut 0.5s;
   }
 }

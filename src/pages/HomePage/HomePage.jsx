@@ -1,18 +1,48 @@
-// src/pages/HomePage.js
+s;
+import { TypeAnimation } from "react-type-animation";
 import s from "./HomePage.module.css";
 import ContactList from "../../components/ContactList/ContactList.jsx";
+
 const HomePage = () => {
   return (
     <div className={s.homepage_wrapp}>
       <div className={s.contacts_container}>
         <ContactList />
       </div>
-      <h2 className={s.title}>Welcome to our application!</h2>
+      <h2 className={s.title}>
+        <TypeAnimation
+          sequence={[
+            "Welcome to our application!",
+            2000,
+            "Manage your contacts easily",
+            2000,
+            "Let's get started!",
+            2000,
+          ]}
+          speed={50}
+          repeat={Infinity}
+        />
+      </h2>
       <p className={s.p}>
         This application allows you to manage your contacts.
       </p>
-      <p className={s.p}>Developer: Volodimir Fushtei</p>
+      <p className={s.p}>
+        <TypeAnimation
+          sequence={[
+            "Add new contacts",
+            2000,
+            "Edit contacts",
+            2000,
+            "Delete contacts",
+            2000,
+          ]}
+          speed={50}
+          repeat={Infinity}
+        />
+        Developer: Volodimir Fushtei
+      </p>
     </div>
   );
 };
+
 export default HomePage;

@@ -12,7 +12,7 @@ const UserMenu = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch(logout()); // Викличте функцію logout
+    dispatch(logout());
   };
 
   return (

@@ -8,7 +8,6 @@ import { selectIsLoggedIn } from "../../redux/auth/selectors"; // Adjust the imp
 import s from "./AppBar.module.css";
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-
   return (
     <header className={s.wrapperAppBar}>
       <Navigation />
