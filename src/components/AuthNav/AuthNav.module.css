@@ -16,6 +16,7 @@
     transition: background-color 0.3s ease;
   }
 }
+
 .link {
   color: white;
   font-weight: bold;
@@ -33,24 +34,7 @@
   margin-right: 10px;
   margin-left: 10px;
 }
-.title {
-  font-size: 34px;
 
-  max-width: 900px;
-
-  font-weight: bold;
-  color: rgb(237, 226, 226);
-  text-align: center;
-  margin: 0 auto;
-
-  transition: color 0.3s ease;
-  &:hover {
-    color: rgb(235, 228, 228);
-  }
-  &:active {
-    color: rgb(228, 220, 220);
-  }
-}
 .nameuser {
   color: rgb(75, 235, 91);
   display: flex;

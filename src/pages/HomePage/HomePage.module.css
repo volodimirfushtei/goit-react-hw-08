@@ -1,6 +1,6 @@
 .homepage_wrapp {
   font-size: large;
-  max-width: 1480px;
+  max-width: 1580px;
   min-height: 700px;
   font-weight: 700;
   color: #212121;
@@ -35,12 +35,4 @@
     color: rgb(251, 248, 248);
     transition: color 0.3s ease;
   }
-}
-.contacts_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  width: 1380px;
 }

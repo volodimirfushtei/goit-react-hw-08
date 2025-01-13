@@ -1,14 +1,9 @@
-s;
 import { TypeAnimation } from "react-type-animation";
 import s from "./HomePage.module.css";
-import ContactList from "../../components/ContactList/ContactList.jsx";
 
 const HomePage = () => {
   return (
     <div className={s.homepage_wrapp}>
-      <div className={s.contacts_container}>
-        <ContactList />
-      </div>
       <h2 className={s.title}>
         <TypeAnimation
           sequence={[

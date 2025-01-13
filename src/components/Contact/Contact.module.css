@@ -10,7 +10,7 @@
   gap: 6px;
   height: 45px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.9));
-  width: 350px;
+  width: 380px;
   justify-content: space-between;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);

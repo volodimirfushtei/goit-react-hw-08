@@ -15,8 +15,6 @@ import { selectFilteredContacts } from "../../redux/contacts/selectors.js";
 import { motion } from "framer-motion";
 
 const ContactList = () => {
-  const contacts = useSelector((state) => state.contacts.items);
-  console.log("All contacts in state:", contacts);
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading) || false;
   const error = useSelector(selectError) || false;

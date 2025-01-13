@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors.js";
 import { NavLink } from "react-router-dom";
-import Avatar from "@mui/material/Avatar";
+
 // Додайте імпорт для кнопки
 import s from "./AuthNav.module.css";
 import clsx from "clsx";
@@ -16,13 +16,11 @@ const AuthNav = () => {
 
   return (
     <div className={s.name_wrapp}>
-      <h1 className={s.title}>Phonebook</h1>
-      <Avatar />
       <div className={s.name_wrapp}>
         {isLoggedIn ? (
           <div className={s.nameuser}>{user.name}</div>
         ) : (
-          <div className={s.login}> Log in</div>
+          <div className={s.login}>Log in</div>
         )}
       </div>
       <NavLink className={buildLinkClass} to="/register">

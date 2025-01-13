@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 5px;
   color: white;
   font-weight: 700;
 }
@@ -15,7 +15,7 @@
 }
 .wrapperLinks {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
   flex-direction: row;
   justify-content: center;
@@ -23,10 +23,11 @@
   margin-left: 10px;
 }
 .h1 {
-  font-size: 34px;
-  width: 1000px;
+  font-size: 18px;
+  width: 900px;
   font-weight: bold;
   color: rgb(237, 226, 226);
+
   text-align: center;
 
   transition: color 0.3s ease;
@@ -38,14 +39,15 @@
   }
 }
 .nameuser {
-  color: rgb(60, 241, 78);
+  color: rgb(99, 241, 114);
   display: flex;
-  margin: 0 12px 0 12px;
+  margin: 0 6px 0 6px;
   transition: color 0.3s ease;
+  font-size: small;
 
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   &:hover {
-    color: rgb(45, 188, 23);
+    color: rgb(122, 191, 111);
   }
 }
 .name_wrapp {
@@ -61,4 +63,46 @@
   gap: 4px;
   font-weight: bold;
   transition: color 0.3s ease;
+}
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 10px;
+  }
+  .h1 {
+    font-size: 24px;
+  }
+  .nameuser {
+    font-size: 16px;
+  }
+  .login {
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 20px;
+  }
+  .h1 {
+    font-size: 34px;
+  }
+  .nameuser {
+    font-size: 16px;
+  }
+  .login {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1280px) {
+  .wrapper {
+    padding: 30px;
+  }
+  .h1 {
+    font-size: 40px;
+  }
+  .nameuser {
+    font-size: 18px;
+  }
+  .login {
+    font-size: 24px;
+  }
 }
