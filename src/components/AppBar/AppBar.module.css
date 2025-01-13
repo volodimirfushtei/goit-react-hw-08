@@ -47,7 +47,7 @@
     width: auto;
   }
 }
-.h1 {
+.title {
   font-size: 24px;
 }
 .link {
@@ -74,8 +74,8 @@
     gap: 20px;
     width: auto;
   }
-  .h1 {
-    font-size: 34px;
+  .title {
+    font-size: 18px;
   }
   .wrapperLinks {
     gap: 15px;

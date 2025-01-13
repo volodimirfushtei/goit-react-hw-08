@@ -36,3 +36,33 @@
     transition: color 0.3s ease;
   }
 }
+@media (min-width: 768px) {
+  .homepage_wrapp {
+    font-size: medium;
+    min-height: 500px;
+    margin-bottom: 10px;
+  }
+  .title {
+    font-size: 3em;
+    margin-top: 10px;
+  }
+  .p {
+    font-size: 1.2em;
+    margin-top: 5px;
+  }
+}
+@media (min-width: 1280px) {
+  .homepage_wrapp {
+    font-size: large;
+    min-height: 600px;
+    margin-bottom: 15px;
+  }
+  .title {
+    font-size: 3.5em;
+    margin-top: 15px;
+  }
+  .p {
+    font-size: 1.3em;
+    margin-top: 7px;
+  }
+}
